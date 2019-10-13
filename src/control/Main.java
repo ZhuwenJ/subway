@@ -52,7 +52,7 @@ public abstract class Main {
     	String jsonString = readJsonData(filepath);
     	if(jsonString.equals("-1"))return null;
 		JSONArray lineArr = JSON.parseArray(jsonString);
-		System.out.print("µØÌúĞÅÏ¢¼ÓÔØ³É¹¦£º");
+		System.out.print("åœ°é“ä¿¡æ¯åŠ è½½æˆåŠŸï¼š");
 		for(int i = 0; i < lineArr.size(); i++) {
 			JSONObject jsonObj = lineArr.getJSONObject(i);
 			
@@ -66,7 +66,7 @@ public abstract class Main {
 		int flage=0;
 
     	for(int i=0;i<list.size();i++) {
-    		if(list.get(i).contains("Ïß")) {
+    		if(list.get(i).contains("çº¿")) {
     			if(flage==1)flage=0;
     			if(list.get(i).equals(line))
     				flage=1;
@@ -87,7 +87,7 @@ public abstract class Main {
 	    	String jsonString = readJsonData(filepath);
 	    	if(jsonString.equals("-1"))return null;
 			JSONArray lineArr = JSON.parseArray(jsonString);
-			System.out.print("µØÌúĞÅÏ¢¼ÓÔØ³É¹¦£º");
+			System.out.print("åœ°é“ä¿¡æ¯åŠ è½½æˆåŠŸï¼š");
 			for(int i = 0; i < lineArr.size(); i++) {
 				JSONObject jsonObj = lineArr.getJSONObject(i);
 				
@@ -102,10 +102,10 @@ public abstract class Main {
 	    	Set<String> set1 = new LinkedHashSet<String>(list);
 	    	Set<String> set2 = new LinkedHashSet<String>();
 	    	for(int i=0;i<list.size();i++) {
-	    		if(list.get(i).contains("Ïß")) {
+	    		if(list.get(i).contains("çº¿")) {
 	    			String s1 = list.get(i);
 	    			set1.remove(s1);
-	    		}else if( (i+1)==list.size() || list.get(i+1).contains("Ïß")) {
+	    		}else if( (i+1)==list.size() || list.get(i+1).contains("çº¿")) {
 	    			continue;
 	    		}else {
 	    			String s2 = list.get(i)+","+list.get(i+1);
@@ -115,11 +115,11 @@ public abstract class Main {
 	    		}
 	    	}
 	  
-	    	//´æ´¢µØÌúÕ¾ĞÅÏ¢
+	    	//å­˜å‚¨åœ°é“ç«™ä¿¡æ¯
 			List<Station> verList = new LinkedList<Station>();
 			String line=null;
 	    	for(String s: list){
-	    		if(s.contains("Ïß")) {
+	    		if(s.contains("çº¿")) {
 	    			line=s;
 	    		}else {
 					Station station=new Station(s);
@@ -166,7 +166,7 @@ public abstract class Main {
 	public static String find(String path,String start,String end) {
 		 Graph g=init(path,start);
 		 if(Station.getStation(g.getStationList(),end)==null||Station.getStation(g.getStationList(),start)==null) {
-			 return "Õ¾µã²»´æÔÚ";
+			 return "ç«™ç‚¹ä¸å­˜åœ¨";
 		 }
 		 String resultstring = "";
 	     Stack<Station> result = g.findPathTo(Station.getStation(g.getStationList(),end));
@@ -189,30 +189,30 @@ public abstract class Main {
 		String filepath="D://Java//work//UndergroundManager//src//data//";
 		String outputpath="D://Java//work//UndergroundManager//src//output//";
 		if(args.length==1&&args[0].equals("-help")) {
-			System.out.println("ÓÃ·¨ java subway [-options]");
-            System.out.println("\t\t(µØÌúÂ·Ïß¹æ»®³ÌĞò)");
-            System.out.println("ÆäÖĞÑ¡Ïî°üÀ¨£º");
-            System.out.println("\t-map <µØÌúĞÅÏ¢ÎÄ¼ş>\n\t\t\tÖ¸¶¨µØÌúĞÅÏ¢ÎÄ¼ş£¨Êı¾İÇë·¢ÔÚdataÄ¿Â¼ÏÂ,Ã¿¸ö¶¼ÓĞ£¬¸úÔÚ-a|-bºóÃæ»òÕß¶À×ÔÊ¹ÓÃ£©");
-            System.out.println("\t-o <Êä³öµÄÎÄ±¾ÎÄ¼ş>\tÖ¸¶¨Êä³öÎÄ¼ş£¨Èô²»Ö¸¶¨ÔòÊä³ö¿ØÖÆÌ¨£©");
-            System.out.println("\t-a <Ö¸¶¨µØÌúÏßÂ·>\tÖ¸¶¨µØÌúÏßÂ·Êä³öÄÚÈİ");
-            System.out.println("\t-b <ÆğµãÕ¾> <Ä¿µÄÕ¾>\tÖ¸¶¨ÆğµãÕ¾ÓëÖÕµãÕ¾£¬¼ÆËã×î¶ÌÂ·Ïß");
-            System.out.println("\t\t(-a£¬-b ½öÄÜÑ¡ÔñÆäÒ»£¬ÈôÁ½Õß¶¼ÎŞ£¬ÔòÊä³öËùÓĞÏßÂ·µØÌú)");
-            System.out.println("\t-help\t\t²é¿´°ïÖúĞÅÏ¢(²»ÓëÆäËûÒ»ÆğÊ¹ÓÃ)");
+			System.out.println("ç”¨æ³• java subway [-options]");
+            System.out.println("\t\t(åœ°é“è·¯çº¿è§„åˆ’ç¨‹åº)");
+            System.out.println("å…¶ä¸­é€‰é¡¹åŒ…æ‹¬ï¼š");
+            System.out.println("\t-map <åœ°é“ä¿¡æ¯æ–‡ä»¶>\n\t\t\tæŒ‡å®šåœ°é“ä¿¡æ¯æ–‡ä»¶ï¼ˆæ•°æ®è¯·å‘åœ¨dataç›®å½•ä¸‹,æ¯ä¸ªéƒ½æœ‰ï¼Œè·Ÿåœ¨-a|-båé¢æˆ–è€…ç‹¬è‡ªä½¿ç”¨ï¼‰");
+            System.out.println("\t-o <è¾“å‡ºçš„æ–‡æœ¬æ–‡ä»¶>\tæŒ‡å®šè¾“å‡ºæ–‡ä»¶ï¼ˆè‹¥ä¸æŒ‡å®šåˆ™è¾“å‡ºæ§åˆ¶å°ï¼‰");
+            System.out.println("\t-a <æŒ‡å®šåœ°é“çº¿è·¯>\tæŒ‡å®šåœ°é“çº¿è·¯è¾“å‡ºå†…å®¹");
+            System.out.println("\t-b <èµ·ç‚¹ç«™> <ç›®çš„ç«™>\tæŒ‡å®šèµ·ç‚¹ç«™ä¸ç»ˆç‚¹ç«™ï¼Œè®¡ç®—æœ€çŸ­è·¯çº¿");
+            System.out.println("\t\t(-aï¼Œ-b ä»…èƒ½é€‰æ‹©å…¶ä¸€ï¼Œè‹¥ä¸¤è€…éƒ½æ— ï¼Œåˆ™è¾“å‡ºæ‰€æœ‰çº¿è·¯åœ°é“)");
+            System.out.println("\t-help\t\tæŸ¥çœ‹å¸®åŠ©ä¿¡æ¯(ä¸ä¸å…¶ä»–ä¸€èµ·ä½¿ç”¨)");
             return ;
 		}else if(args.length==2&&args[0].equals("-map")) {
 			filepath+=args[1];
-			Graph g=init(filepath,"");
+			Graph g=init(filepath,"è‹¹æœå›­");
 			int count=0;
 			if(g!=null) {
 				for(Entry<Station, List<Station>> sta:g.getVer_edgeList_map().entrySet()) {
 					count++;
-					System.out.println((sta.getKey()).getName()+"ÓëÖ®ÏàÁ¬µÄÕ¾µã:");
+					System.out.println((sta.getKey()).getName()+"ä¸ä¹‹ç›¸è¿çš„ç«™ç‚¹:");
 					for(Station stas:sta.getValue()) {
 						System.out.print(stas.getName()+" ");
 					}
 					System.out.println("\n------------");
 				}
-				System.out.print("Ò»¹²"+count+"¸öÕ¾µã");
+				System.out.print("ä¸€å…±"+count+"ä¸ªç«™ç‚¹");
 			}
 		}else if(args.length==4&&args[0].equals("-a")&&args[2].equals("-map")) {
 			filepath+=args[3];
@@ -221,7 +221,7 @@ public abstract class Main {
 				System.err.println("Can't Find " + filepath);
 				return;
 			}else if(result.size()==0) {
-				System.out.println("ÊäÈëµÄÏßÂ·ÓĞÎó");
+				System.out.println("è¾“å…¥çš„çº¿è·¯æœ‰è¯¯");
 				return;
 			}
 			for(String s:result)
@@ -231,7 +231,7 @@ public abstract class Main {
 		else if(args.length==5&&args[0].equals("-b")&&args[3].equals("-map")) {
 			filepath+=args[4];
 			if(args[1].equals(args[2])) {
-				System.out.print("¿ªÊ¼Õ¾µãºÍ½áÊøÕ¾µãÏàÍ¬");
+				System.out.print("å¼€å§‹ç«™ç‚¹å’Œç»“æŸç«™ç‚¹ç›¸åŒ");
 				return;
 			}
 			String resultstring=find(filepath,args[1],args[2]);
@@ -245,21 +245,21 @@ public abstract class Main {
 				System.err.println("Can't Find " + filepath);
 				return;
 			}else if(result.size()==0) {
-				System.out.println("ÊäÈëµÄÏßÂ·ÓĞÎó");
+				System.out.println("è¾“å…¥çš„çº¿è·¯æœ‰è¯¯");
 				return;
 			}
 			for(String s:result)
 				resultstring=resultstring+(s+" ");
 			save(outputpath,resultstring);
-			System.out.println("Ğ´Èë³É¹¦\n");
+			System.out.println("å†™å…¥æˆåŠŸ\n");
 		}else if(args.length==7&&args[0].equals("-b")&&args[3].equals("-map")&&args[5].equals("-o")){
 			filepath+=args[4];
 			outputpath+=args[6];
 			String resultstring=find(filepath,args[1],args[2]);
 			save(outputpath,resultstring);
-			System.out.print("´æÈë³É¹¦");
+			System.out.print("å­˜å…¥æˆåŠŸ");
 		}else {
-			System.out.println("²ÎÊı´íÎó£¬ÓÃ·¨²Î¿¼--help");
+			System.out.println("å‚æ•°é”™è¯¯ï¼Œç”¨æ³•å‚è€ƒ--help");
 			return;
 		}
 
